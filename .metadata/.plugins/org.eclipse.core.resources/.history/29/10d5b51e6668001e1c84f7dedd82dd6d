@@ -1,0 +1,5 @@
+package com.coding_dojo.usedBooks.models;
+
+public class Book {
+
+}

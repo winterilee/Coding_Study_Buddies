@@ -1,0 +1,7 @@
+package com.coding_dojo.usedBooks.models;
+
+@Entity
+@Table(name = "books")
+public class Book {
+
+}
