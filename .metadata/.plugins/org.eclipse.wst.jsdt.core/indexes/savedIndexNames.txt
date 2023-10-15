@@ -1,6 +1,4 @@
-INDEX VERSION 1.4+/Users/Autumn/Desktop/Coding_Dojo/Portfolio/usedBooks/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
-64882172.index
-1629579318.index
-2064072974.index
-3257203783.index
-1807655650.index
+INDEX VERSION 1.4+E:\Documents\Coding\Coding_Study_Buddies\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+3405937981.index
+3747267292.index
+2192233125.index

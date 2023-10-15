@@ -16,7 +16,7 @@
 		<div class="banner">
 			<div class="title">
 				<h1>Garage Sale</h1>
-				<h3>Welcome, <c:out value="${loggedUser.firstName}"/>!</h3>
+				<h3>Welcome, <c:out value="${currentUser.firstName}"/>!</h3>
 				<h4>Current Items For Sale:</h4>
 			</div>
 			<div class="links">
