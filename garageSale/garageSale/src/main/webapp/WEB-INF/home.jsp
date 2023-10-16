@@ -43,7 +43,7 @@
 					      <td><c:out value="${item.user.firstName}"/></td>
 					      <td>
 					      	<div class="actions">
-						      	<a href="http://localhost:8080/workinprocess/${item.id}">View</a>
+						      	<a href="http://localhost:8080/garagesale/${item.id}">View</a>
 						      	<c:if test="${currentUser.id == item.user.id }">
 						      		<a href="/garagesale/${item.id}/edit">Edit</a>
 						      		<div class="delete">
@@ -79,7 +79,7 @@
 					      <td><c:out value="${item.user.firstName}"/></td>
 					      <td>
 					      	<div class="actions">
-						      	<a href="http://localhost:8080/workinprocess/${item.id}">View</a>
+						      	<a href="http://localhost:8080/garagesale/${item.id}">View</a>
 						      	<c:if test="${currentUser.id == item.user.id }">
 						      		<a href="/garagesale/${item.id}/edit">Edit</a>
 						      		<div class="delete">
