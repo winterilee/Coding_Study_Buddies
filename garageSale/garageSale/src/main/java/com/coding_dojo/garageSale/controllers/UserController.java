@@ -116,7 +116,7 @@ public class UserController {
 		return "newItem.jsp";
 	}
 	
-//	posting form data from new item form
+//	post new item form data
 	@PostMapping("/garagesale/new/process")
 	public String addItem(
 			HttpSession session,
@@ -148,7 +148,7 @@ public class UserController {
 		return "editItem.jsp";
 	}
 	
-//	put request for form data from edit item form
+//	put request edited item form data
 	@PutMapping("/garagesale/{id}/edit/process")
 	public String editItem(
 			@PathVariable("id") Long id,
@@ -164,7 +164,7 @@ public class UserController {
 	}
 	
 	
-//	posting item deletion
+//	delete item
 	@DeleteMapping("/{id}/delete")
 	public String delete(@PathVariable("id") Long id) {
 		itemService.delete(id);

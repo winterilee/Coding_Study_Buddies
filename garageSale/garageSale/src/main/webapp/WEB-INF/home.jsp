@@ -76,11 +76,11 @@
 					    <tr>
 					      <td><c:out value="${item.title}"/></td>
 					      <td>$<fmt:formatNumber type="number" minFractionDigits="2" value="${item.price}"/></td>
-					      <td><c:out value="${item.user.name}"/></td>
+					      <td><c:out value="${item.user.firstName}"/></td>
 					      <td>
 					      	<div class="actions">
 						      	<a href="http://localhost:8080/workinprocess/${item.id}">View</a>
-						      	<c:if test="${loggedUser.id == item.user.id }">
+						      	<c:if test="${currentUser.id == item.user.id }">
 						      		<a href="/garagesale/${item.id}/edit">Edit</a>
 						      		<div class="delete">
 						      		<form action="/${item.id}/delete" method="POST">
