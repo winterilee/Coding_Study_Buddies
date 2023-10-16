@@ -6,10 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.coding_dojo.garageSale.models.Item;
@@ -146,7 +148,26 @@ public class UserController {
 		return "editItem.jsp";
 	}
 	
-//	posting form data from edit item form
+//	put request for form data from edit item form
+	@PutMapping("/garagesale/{id}/edit/process")
+	public String editItem(
+			@PathVariable("id") Long id,
+			HttpSession session,
+			@Valid @ModelAttribute("item") Item item,
+			BindingResult result,
+			Model viewModel) {
+		if (result.hasErrors()) {
+			return "editItem.jsp";
+		}
+		itemService.update(item);
+		return "redirect:/home";
+	}
+	
 	
 //	posting item deletion
+	@DeleteMapping("/{id}/delete")
+	public String delete(@PathVariable("id") Long id) {
+		itemService.delete(id);
+		return "redirect:/home";
+	}
 }

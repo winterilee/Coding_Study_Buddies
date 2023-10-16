@@ -81,7 +81,7 @@
 					      	<div class="actions">
 						      	<a href="http://localhost:8080/workinprocess/${item.id}">View</a>
 						      	<c:if test="${loggedUser.id == item.user.id }">
-						      		<a href="/workinprocess/${item.id}/edit">Edit</a>
+						      		<a href="/garagesale/${item.id}/edit">Edit</a>
 						      		<div class="delete">
 						      		<form action="/${item.id}/delete" method="POST">
 						      			<input type="hidden" name="_method" value="Delete"/>
