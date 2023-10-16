@@ -1,5 +1,7 @@
 package com.coding_dojo.garageSale.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,7 +35,6 @@ public class UserController {
 			@ModelAttribute("newUser") User newUser, 
 			Model viewModel) {
 		viewModel.addAttribute("loginUser", new UserValidator());
-		
 		return "index.jsp";
 	}
 	
@@ -51,8 +52,7 @@ public class UserController {
             return "index.jsp";
         }
         
-        session.setAttribute("userId", newestUser.getId());
-        
+        session.setAttribute("userId", newestUser.getId());       
         return "redirect:/home";
 	}
 	
@@ -70,8 +70,7 @@ public class UserController {
 			return "index.jsp";
 		}
 		
-		session.setAttribute("userId", user.getId());
-		
+		session.setAttribute("userId", user.getId());		
 		return "redirect:/home";
 	}
 	
@@ -84,9 +83,10 @@ public class UserController {
 		if (currentUserId == null) {
 			return "redirect:/";
 		}
+		List<Item> items = itemService.allItems();
 		User currentUser = this.userService.getById(currentUserId);
-		viewModel.addAttribute("currentUser", currentUser);
-		
+		viewModel.addAttribute("items", items);
+		viewModel.addAttribute("currentUser", currentUser);	
 		return "home.jsp";
 	}
 	
@@ -112,4 +112,22 @@ public class UserController {
 		viewModel.addAttribute("user", currentUser);
 		return "newItem.jsp";
 	}
+	
+//	posting form data from new item form
+	@PostMapping("/garagesale/new/process")
+	public String addItem(
+			HttpSession session,
+			@Valid @ModelAttribute("item") Item newItem,
+			BindingResult result,
+			Model viewModel) {
+		if (result.hasErrors()) {
+//			User currentUser = this.userService.getById( (Long) session.getAttribute("userId"));
+//			viewModel.addAttribute("item", new Item());
+//			viewModel.addAttribute("user", currentUser);
+			return "newItem.jsp";
+		}
+		itemService.create(newItem);
+		return "redirect:/home";
+	}
+	
 }

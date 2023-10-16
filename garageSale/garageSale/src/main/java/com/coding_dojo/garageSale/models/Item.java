@@ -1,9 +1,7 @@
 package com.coding_dojo.garageSale.models;
 
 import java.util.Date;
-
 import org.springframework.format.annotation.DateTimeFormat;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -16,6 +14,7 @@ import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "items")
@@ -29,8 +28,8 @@ public class Item {
 	@NotEmpty(message = "Item must have a title")
 	private String title;
 	
-	@NotEmpty(message = "Price must be listed")
-	private int price;
+	@NotNull(message = "Price must be listed")
+	private Double price;
 	
 	@NotEmpty(message = "A brief description must be included")
 	private String description;
@@ -54,7 +53,7 @@ public class Item {
 	public Item () {}
 	
 //	constructor
-	public Item(String title, int price, String description, boolean status, boolean isBidAccepted, User user) {
+	public Item(String title, Double price, String description, boolean status, boolean isBidAccepted, User user) {
 		this.title = title;
 		this.price = price;
 		this.description = description;
@@ -76,10 +75,10 @@ public class Item {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public int getPrice() {
+	public Double getPrice() {
 		return price;
 	}
-	public void setPrice(int price) {
+	public void setPrice(Double price) {
 		this.price = price;
 	}
 	public String getDescription() {
