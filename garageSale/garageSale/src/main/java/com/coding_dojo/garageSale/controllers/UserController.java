@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -121,13 +122,31 @@ public class UserController {
 			BindingResult result,
 			Model viewModel) {
 		if (result.hasErrors()) {
-//			User currentUser = this.userService.getById( (Long) session.getAttribute("userId"));
-//			viewModel.addAttribute("item", new Item());
-//			viewModel.addAttribute("user", currentUser);
 			return "newItem.jsp";
 		}
 		itemService.create(newItem);
 		return "redirect:/home";
 	}
 	
+//	display edit item form
+	@GetMapping("/garagesale/{id}/edit")
+	public String editItemForm(
+			@PathVariable("id") Long id,
+			HttpSession session,
+			@ModelAttribute("item") Item item,
+			Model viewModel) {
+		Long currentUserId = (Long) session.getAttribute("userId");
+		if (currentUserId == null) {
+			return "redirect:/";
+		}
+		Item currentItem = itemService.getOne(id);
+		User currentUser = this.userService.getById(currentUserId);
+		viewModel.addAttribute("user", currentUser);
+		viewModel.addAttribute("item", currentItem);
+		return "editItem.jsp";
+	}
+	
+//	posting form data from edit item form
+	
+//	posting item deletion
 }
