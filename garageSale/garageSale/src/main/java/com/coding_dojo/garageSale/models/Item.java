@@ -37,6 +37,8 @@ public class Item {
 	
 	private boolean status;
 	
+	private boolean isBidAccepted;
+	
 	@Column(updatable = false)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date created_at;
@@ -52,11 +54,12 @@ public class Item {
 	public Item () {}
 	
 //	constructor
-	public Item(String title, int price, String description, boolean status, User user) {
+	public Item(String title, int price, String description, boolean status, boolean isBidAccepted, User user) {
 		this.title = title;
 		this.price = price;
 		this.description = description;
 		this.status = status;
+		this.isBidAccepted = isBidAccepted;
 		this.user = user;
 	}
 	
@@ -66,6 +69,12 @@ public class Item {
 	}
 	public void setId(Long id) {
 		this.id = id;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
 	}
 	public int getPrice() {
 		return price;
@@ -84,6 +93,12 @@ public class Item {
 	}
 	public void setStatus(boolean status) {
 		this.status = status;
+	}
+	public boolean getIsBidAccepted() {
+		return isBidAccepted;
+	}
+	public void setIsBidAccepted(boolean isBidAccepted) {
+		this.isBidAccepted = isBidAccepted;
 	}
 	public User getUser() {
 		return user;
