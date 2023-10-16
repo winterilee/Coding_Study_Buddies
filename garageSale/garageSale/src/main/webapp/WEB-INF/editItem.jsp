@@ -15,7 +15,7 @@
 	<div class="container">
 	<h1>Garage Sale</h1>
 		<div class="links">
-			<a href="http://localhost:8080/garagesale">Home</a>
+			<a href="http://localhost:8080/home">Home</a>
 			<a href="http://localhost:8080/logout">Logout</a>
 		</div>
 		<div class="form">

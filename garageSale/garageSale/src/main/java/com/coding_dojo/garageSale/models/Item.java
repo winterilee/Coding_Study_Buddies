@@ -1,9 +1,7 @@
 package com.coding_dojo.garageSale.models;
 
 import java.util.Date;
-
 import org.springframework.format.annotation.DateTimeFormat;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -16,6 +14,7 @@ import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "items")
@@ -29,13 +28,15 @@ public class Item {
 	@NotEmpty(message = "Item must have a title")
 	private String title;
 	
-	@NotEmpty(message = "Price must be listed")
-	private int price;
+	@NotNull(message = "Price must be listed")
+	private Double price;
 	
 	@NotEmpty(message = "A brief description must be included")
 	private String description;
 	
 	private boolean status;
+	
+	private boolean isBidAccepted;
 	
 	@Column(updatable = false)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -52,11 +53,12 @@ public class Item {
 	public Item () {}
 	
 //	constructor
-	public Item(String title, int price, String description, boolean status, User user) {
+	public Item(String title, Double price, String description, boolean status, boolean isBidAccepted, User user) {
 		this.title = title;
 		this.price = price;
 		this.description = description;
 		this.status = status;
+		this.isBidAccepted = isBidAccepted;
 		this.user = user;
 	}
 	
@@ -67,10 +69,16 @@ public class Item {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public int getPrice() {
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public Double getPrice() {
 		return price;
 	}
-	public void setPrice(int price) {
+	public void setPrice(Double price) {
 		this.price = price;
 	}
 	public String getDescription() {
@@ -84,6 +92,12 @@ public class Item {
 	}
 	public void setStatus(boolean status) {
 		this.status = status;
+	}
+	public boolean getIsBidAccepted() {
+		return isBidAccepted;
+	}
+	public void setIsBidAccepted(boolean isBidAccepted) {
+		this.isBidAccepted = isBidAccepted;
 	}
 	public User getUser() {
 		return user;
