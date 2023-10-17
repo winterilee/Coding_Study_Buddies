@@ -99,7 +99,6 @@ public class UserController {
 		session.invalidate();
 		return "redirect:/";
 	}
-	
 //	display new item form
 	@GetMapping("/garagesale/new")
 	public String newItemForm(
@@ -182,7 +181,9 @@ public class UserController {
 		}
 		Item currentItem = itemService.getOne(id);
 		viewModel.addAttribute("item", currentItem);
-		return "someFile.jsp";
+		User currentUser = this.userService.getById(currentUserId);
+		viewModel.addAttribute("currentUser", currentUser);
+		return "itemView.jsp";
 	}
 	
 }

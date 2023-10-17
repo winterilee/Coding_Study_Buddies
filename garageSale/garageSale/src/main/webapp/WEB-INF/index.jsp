@@ -13,7 +13,7 @@
 </head>
 <body>
 	<div class="container d-flex flex-column mt-3">
-		<h1>Welcome!</h1>
+		<h1>Welcome to Garage Sale!</h1>
 		<hr />
 		<div class="d-flex flex-row mt-3 justify-content-around">
 			<div class="d-flex flex-column">
@@ -54,7 +54,7 @@
 							<form:input type="password" path="confirm"/>
 						</p>
 					</div>
-					<input type="submit" value="Register"/>
+					<button type="submit" class="btn btn-dark">Submit</button>
 				</form:form>
 			</div>
 			<div class="d-flex flex-column">
@@ -74,7 +74,7 @@
 							<form:input type="password" path="password"/>
 						</p>
 					</div>
-					<input type="submit" value="Login"/>
+					<button type="submit" class="btn btn-dark">Submit</button>
 				</form:form>
 			</div>
 		</div>
