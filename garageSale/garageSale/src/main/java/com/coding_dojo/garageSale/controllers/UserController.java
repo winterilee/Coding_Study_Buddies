@@ -99,7 +99,6 @@ public class UserController {
 		session.invalidate();
 		return "redirect:/";
 	}
-	
 //	display new item form
 	@GetMapping("/garagesale/new")
 	public String newItemForm(
