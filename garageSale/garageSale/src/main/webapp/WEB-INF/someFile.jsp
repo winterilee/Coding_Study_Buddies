@@ -22,7 +22,7 @@
 			<p>Description:</p>
 			<p><c:out value="${item.description}"/></p>
 		</div>
-		<c:if test="${loggedUser.id == item.user.id}">
+		<c:if test="${currentUser.id == item.user.id}">
 			<div class="accept">
 				<form:form action="/garagesale/${item.id}/edit/process" method="post" modelAttribute="item">
 				 <input type="hidden" name="_method" value="put">

@@ -181,6 +181,8 @@ public class UserController {
 		}
 		Item currentItem = itemService.getOne(id);
 		viewModel.addAttribute("item", currentItem);
+		User currentUser = this.userService.getById(currentUserId);
+		viewModel.addAttribute("currentUser", currentUser);
 		return "someFile.jsp";
 	}
 	
