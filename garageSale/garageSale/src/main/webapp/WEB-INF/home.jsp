@@ -9,6 +9,7 @@
 <title>Home</title>
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/home.css">
 </head>
 <body>
 

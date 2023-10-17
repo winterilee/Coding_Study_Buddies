@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+.actions {
+	display: flex;
+	width: 150px;
+	justify-content: space-around;
+}
+
+button {
+	background: none!important;
+	border: none;
+	padding: 0!important;
+	color: #3366EE;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.links {
+	text-align: right;
+	padding-right: 15px;
+}

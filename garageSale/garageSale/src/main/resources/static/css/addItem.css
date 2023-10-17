@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-weight: bold;
+}
+
+button {
+	margin-left: 50px;
+}
+
+.links {
+	margin-left: -20px;
+}
+
+a {
+	margin-left: 20px;
+}
+
+h3 {
+	padding-top: 30px;
+}
