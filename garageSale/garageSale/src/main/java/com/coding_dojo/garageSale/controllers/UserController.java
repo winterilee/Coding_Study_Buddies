@@ -162,12 +162,27 @@ public class UserController {
 		itemService.update(item);
 		return "redirect:/home";
 	}
-	
-	
+		
 //	delete item
 	@DeleteMapping("/{id}/delete")
 	public String delete(@PathVariable("id") Long id) {
 		itemService.delete(id);
 		return "redirect:/home";
 	}
+	
+//	display item view page
+	@GetMapping("/garagesale/{id}")
+	public String viewItem(
+			@PathVariable("id") Long id,
+			HttpSession session,
+			Model viewModel) {
+		Long currentUserId = (Long) session.getAttribute("userId");
+		if (currentUserId == null) {
+			return "redirect:/";
+		}
+		Item currentItem = itemService.getOne(id);
+		viewModel.addAttribute("item", currentItem);
+		return "someFile.jsp";
+	}
+	
 }
