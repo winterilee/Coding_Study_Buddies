@@ -11,16 +11,25 @@
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="/css/itemView.css">
+<style>
+		body {
+			background-image:url(/images/stuff.jpg); 
+    		background-repeat: no-repeat; 
+   		 	background-attachment: fixed;  
+    		background-size: 100% 120%; 
+		}
+	</style>
 </head>
 <body>
 	<div class="container">
-		<h1>Garage Sale</h1>
+		<h1><img src="/images/garagesale.png" alt="Garage Sale" style="width: 150px"></h1>
 		<div class="links">
 			<a href="http://localhost:8080/home">Home</a>
 			<a href="http://localhost:8080/logout">Logout</a>
 		</div>
-		<h3><c:out value="${item.user.firstName}"/> is trying to sell a <c:out value="${item.title}"/>!</h3>
 		<div class="itemInfo">
+			<h3><c:out value="${item.user.firstName}"/> is trying to sell</h3>
+			<h3> a <c:out value="${item.title}"/>!</h3>
 			<p>Asking price: $<fmt:formatNumber type="number" minFractionDigits="2" value="${item.price}"/></p>
 			<p>Description:</p>
 			<p><c:out value="${item.description}"/></p>

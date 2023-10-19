@@ -1,0 +1,4 @@
+@charset "UTF-8";
+.container d-flex flex-column mt-3 {
+	color: AliceBlue;
+}

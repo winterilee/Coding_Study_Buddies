@@ -10,10 +10,18 @@
 <meta charset="ISO-8859-1">
 <title>Garage Sale Login and Registration</title>
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+	<style>
+		body {
+			background-image:url(/images/gs.jpg); 
+    		background-repeat: no-repeat; 
+   		 	background-attachment: fixed;  
+    		background-size: 130% 130%; 
+		}
+	</style>
 </head>
 <body>
 	<div class="container d-flex flex-column mt-3">
-		<h1>Welcome to Garage Sale!</h1>
+		<h1>Welcome to <img src="/images/garagesale.png" alt="Garage Sale" style="width: 100px"></h1>
 		<hr />
 		<div class="d-flex flex-row mt-3 justify-content-around">
 			<div class="d-flex flex-column">
