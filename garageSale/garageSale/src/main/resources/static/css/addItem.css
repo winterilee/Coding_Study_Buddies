@@ -20,5 +20,16 @@ a {
 }
 
 h3 {
-	padding-top: 30px;
+	color: AliceBlue;
+}
+.form {
+	margin-top: 150px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	color: AliceBlue;
+	background: red;
+	width: 300px;
+	height: 400px;
 }

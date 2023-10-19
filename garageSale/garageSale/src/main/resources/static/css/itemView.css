@@ -15,6 +15,15 @@ a {
 	margin-left: -20px;
 }
 
-h3 {
-	padding-top: 30px;
+.itemInfo {
+	margin-top: 30px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background: white;
+	border: solid  black 3px;
+	width: 300px;
+	height: 350px;
+}
 }

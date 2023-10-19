@@ -10,13 +10,20 @@
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="/css/home.css">
+	<style>
+		body {
+			background-image:url(/images/garage.jpg); 
+    		background-repeat: no-repeat; 
+   		 	background-attachment: fixed;  
+    		background-size: 100% 120%; 
+		}
+	</style>
 </head>
 <body>
-
 	<div class="container">
 		<div class="banner">
 			<div class="title">
-				<h1>Garage Sale</h1>
+				<h1><img src="/images/garagesale.png" alt="Garage Sale" style="width: 150px"></h1>
 				<h3>Welcome, <c:out value="${currentUser.firstName}"/>!</h3>
 				<h4>Current Items For Sale:</h4>
 			</div>
@@ -26,7 +33,7 @@
 			</div>
 		</div>
 		<div class="tables">
-			<table class="table table-striped">
+			<table class="table table-striped table-primary">
 			  <thead>
 			    <tr>
 			      <th scope="col">Item</th>
@@ -62,7 +69,7 @@
 			</table>
 			<h4>Sold Items:</h4>
 			<div class="table">
-			<table class="table table-striped">
+			<table class="table table-striped table-primary">
 			  <thead>
 			    <tr>
 			      <th scope="col">Item</th>

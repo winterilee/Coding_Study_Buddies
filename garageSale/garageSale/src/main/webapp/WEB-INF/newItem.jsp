@@ -11,16 +11,25 @@
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="/css/addItem.css">
+	<style>
+		body {
+			background-image:url(/images/sale.jpg); 
+    		background-repeat: no-repeat; 
+   		 	background-attachment: fixed;  
+    		background-size: 100% 120%; 
+		}
+	</style>
 </head>
 <body>
 	<div class="container">
-		<h1>Garage Sale</h1>
+		<h1><img src="/images/garagesale.png" alt="Garage Sale" style="width: 150px"></h1>
 		<div class="links">
 			<a href="http://localhost:8080/home">Home</a>
 			<a href="http://localhost:8080/logout">Logout</a>
 		</div>
-		<h3>What Would You Like To Sell Today?</h3>
 		<div class="form">
+			<h3>What Would You Like To </h3>
+			<h3>Sell Today?</h3>
 			<form:form action="/garagesale/new/process" method="post" modelAttribute="item">
 				<div style="color: red"><form:errors path="title"/></div>
 				<div style="color: red"><form:errors path="price"/></div>
@@ -43,7 +52,7 @@
 				<p>
 					<form:input type="hidden" path="user" value="${user.id}"/>
 				</p>
-				<button type="submit" class="btn btn-success">+ Create</button>
+				<button type="submit" class="btn btn-light">+ Create</button>
 			</form:form>
 		</div>
 	</div>
