@@ -25,6 +25,7 @@
 		<h1><img src="/images/garagesale.png" alt="Garage Sale" style="width: 150px"></h1>
 		<div class="links">
 			<a href="http://localhost:8080/home">Home</a>
+			<a href="http://localhost:8080/offers/${item.id}/new_offer">+ Add an Offer</a>
 			<a href="http://localhost:8080/logout">Logout</a>
 		</div>
 		<div class="itemInfo">
@@ -33,6 +34,26 @@
 			<p>Asking price: $<fmt:formatNumber type="number" minFractionDigits="2" value="${item.price}"/></p>
 			<p>Description:</p>
 			<p><c:out value="${item.description}"/></p>
+		</div>
+		<h2>Offers:</h2>
+		<c:forEach var="thisOffer" items="${item.allOffers}">
+			<div class=offer>
+			<p>Added By: <c:out value="${ thisOffer.offerer.firstName}"/> <c:out value="${ thisOffer.offerer.lastName}"/></p>
+			<p>Amount: $<fmt:formatNumber type="number" minFractionDigits="2" value="${thisOffer.amount}"/></p>
+			<p>Offer Remarks: <c:out value="${thisOffer.offerRemarks}"/></p>
+			
+			<c:if test="${currentUser.id == thisOffer.offerer.id}">
+			<div class="actions">
+				<form action="/offers/${thisOffer.id}/edit_offer" method="get">
+					<input type="hidden" value="Edit"/>
+					<button type="submit" class="btn btn-dark">Edit</button>
+				</form>
+				<form action="/offers/${thisOffer.id}/deleteOffer" method="post">
+			      	<input type="hidden" name="_method" value="delete" />
+			      	<button type="submit" class="btn btn-dark">Delete</button>
+			    </form>
+			</div>
+		</c:if>
 		<c:if test="${currentUser.id == item.user.id}">
 			<div class="accept">
 				<form:form action="/garagesale/${item.id}/edit/process" method="post" modelAttribute="item">
@@ -48,11 +69,12 @@
 	
 				    <form:input type="hidden" path="user" value="${user.id}"/>
 				    <form:input type="hidden" path="id" value="${item.id}"/>    
-				    <button type="submit" class="btn btn-danger">Mark As Sold</button>
+				    <button type="submit" class="btn btn-danger">Accept Offer</button>
 				</form:form>
 			</div>
 		</c:if> 
 		</div>
+		</c:forEach>
 	</div>
 </body>
 </html>

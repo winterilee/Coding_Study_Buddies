@@ -61,6 +61,9 @@ public class User {
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
 	private List<Item> items;
 	
+	@OneToMany(mappedBy="offerer", fetch=FetchType.LAZY)
+    private List<Offer> offers;
+	
 //	default constructor
 	public User () {}
 	
@@ -146,6 +149,13 @@ public Long getId() {
 
 	public void setItems(List<Item> items) {
 		this.items = items;
+	}
+	public List<Offer> getOffers() {
+		return offers;
+	}
+
+	public void setOffers(List<Offer> offers) {
+		this.offers = offers;
 	}
 
 	//	auto-generating and updating 'created_at' and 'updated_at'

@@ -1,7 +1,10 @@
 package com.coding_dojo.garageSale.models;
 
 import java.util.Date;
+import java.util.List;
+
 import org.springframework.format.annotation.DateTimeFormat;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -10,6 +13,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
@@ -36,7 +40,6 @@ public class Item {
 	
 	private boolean status;
 	
-	private boolean isBidAccepted;
 	
 	@Column(updatable = false)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -49,16 +52,18 @@ public class Item {
 	@JoinColumn(name = "user_id")
 	private User user;
 	
+	@OneToMany(mappedBy="itemWithOffers", fetch=FetchType.LAZY)
+	private List<Offer> allOffers;
+	
 //	default constructor
 	public Item () {}
 	
 //	constructor
-	public Item(String title, Double price, String description, boolean status, boolean isBidAccepted, User user) {
+	public Item(String title, Double price, String description, boolean status, User user) {
 		this.title = title;
 		this.price = price;
 		this.description = description;
 		this.status = status;
-		this.isBidAccepted = isBidAccepted;
 		this.user = user;
 	}
 	
@@ -93,12 +98,6 @@ public class Item {
 	public void setStatus(boolean status) {
 		this.status = status;
 	}
-	public boolean getIsBidAccepted() {
-		return isBidAccepted;
-	}
-	public void setIsBidAccepted(boolean isBidAccepted) {
-		this.isBidAccepted = isBidAccepted;
-	}
 	public User getUser() {
 		return user;
 	}
@@ -106,7 +105,31 @@ public class Item {
 		this.user = user;
 	}
 	
-//	auto-generating + updating 'created_at' and 'updated_at'
+	public Date getCreated_at() {
+		return created_at;
+	}
+
+	public void setCreated_at(Date created_at) {
+		this.created_at = created_at;
+	}
+
+	public Date getUpdated_at() {
+		return updated_at;
+	}
+
+	public void setUpdated_at(Date updated_at) {
+		this.updated_at = updated_at;
+	}
+
+	public List<Offer> getAllOffers() {
+		return allOffers;
+	}
+
+	public void setAllOffers(List<Offer> allOffers) {
+		this.allOffers = allOffers;
+	}
+
+	//	auto-generating + updating 'created_at' and 'updated_at'
 	@PrePersist
 	protected void onCreate() {
 		this.created_at = new Date();
