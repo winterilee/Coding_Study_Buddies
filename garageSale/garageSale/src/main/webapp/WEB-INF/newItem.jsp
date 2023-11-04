@@ -43,8 +43,8 @@
 				</p>
 				<p>
 					<form:label path="status">Item Sold?</form:label>
-					<form:radiobutton path="isBidAccepted" value="true" label="yes"/>
-					<form:radiobutton path="isBidAccepted" value="false" label="no" checked="true"/>
+					<form:radiobutton path="status" value="true" label="yes"/>
+					<form:radiobutton path="status" value="false" label="no" checked="true"/>
 				<p>
 					
 					<form:textarea rows="4" path="description" placeholder="Description"/>
